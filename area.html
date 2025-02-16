@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Your Area</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header with Navbar -->
+    <header class="bg-green-600 text-white py-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-4">
+          <img src="aquasense.png" alt="AquaSense Logo" class="h-12" />
+        </div>
+        <!-- Navigation Links -->
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-6 items-center">
+            <li><a href="index.html" class="hover:underline">About</a></li>
+            <li>
+              <a href="#membership" class="hover:underline">Membership</a>
+            </li>
+            <li>
+              <a href="calculator.html" class="hover:underline">Calculator</a>
+            </li>
+            <li><a href="#shop" class="hover:underline">Shop</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-green-600 text-white py-4"
+      >
+        <ul class="space-y-4 px-4">
+          <li><a href="index.html" class="block hover:underline">About</a></li>
+          <li>
+            <a href="#membership" class="block hover:underline">Membership</a>
+          </li>
+          <li>
+            <a href="calculator.html" class="block hover:underline"
+              >Calculator</a
+            >
+          </li>
+          <li><a href="#shop" class="block hover:underline">Shop</a></li>
+          <li><a href="#contact" class="block hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Area Selection Form -->
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+      <div class="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
+        <h2 class="text-xl font-bold mb-4">আপনার এলাকা নির্বাচন করুন</h2>
+
+        <!-- Dropdown -->
+        <select id="areaSelect" class="w-full p-2 border rounded">
+          <option value="" disabled selected>বিভাগ</option>
+          <option value="Dhaka">ঢাকা</option>
+          <option value="Chattogram">চট্টগ্রাম</option>
+          <option value="Rajshahi">রাজশাহী</option>
+          <option value="Khulna">খুলনা</option>
+          <option value="Barishal">বরিশাল</option>
+          <option value="Sylhet">সিলেট</option>
+          <option value="Rangpur">রংপুর</option>
+          <option value="Mymensingh">ময়মনসিংহ</option>
+        </select>
+
+        <!-- Next Button -->
+        <button
+          id="nextBtn"
+          class="mt-4 bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
+          disabled
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Tailwind CSS for Mobile Menu Toggle -->
+    <script>
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const areaSelect = document.getElementById("areaSelect");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Enable button when an area is selected
+      areaSelect.addEventListener("change", function () {
+        nextBtn.disabled = false;
+      });
+
+      // Redirect to pond size selection
+      nextBtn.addEventListener("click", function () {
+        const selectedArea = areaSelect.value;
+        window.location.href = `pond-size.html?area=${selectedArea}`;
+      });
+    </script>
+  </body>
+</html>

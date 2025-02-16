@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>মাছের পরামর্শ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <header class="bg-green-600 text-white py-4 sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-4">
+          <img src="aquasense.png" alt="AquaSense Logo" class="h-12" />
+        </div>
+        <!-- Navigation Links -->
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-6 items-center">
+            <li><a href="index.html" class="hover:underline">About</a></li>
+            <li>
+              <a href="#membership" class="hover:underline">Membership</a>
+            </li>
+            <li>
+              <a href="calculator.html" class="hover:underline">Calculator</a>
+            </li>
+            <li><a href="#shop" class="hover:underline">Shop</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-green-600 text-white py-4"
+      >
+        <ul class="space-y-4 px-4">
+          <li><a href="index.html" class="block hover:underline">About</a></li>
+          <li>
+            <a href="#membership" class="block hover:underline">Membership</a>
+          </li>
+          <li>
+            <a href="calculator.html" class="block hover:underline"
+              >Calculator</a
+            >
+          </li>
+          <li><a href="#shop" class="block hover:underline">Shop</a></li>
+          <li><a href="#contact" class="block hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-6">
+        <br />আপনার মাছ চাষের পরামর্শ
+      </h2>
+
+      <!-- Display Selected Area and Pond Size -->
+      <p class="text-lg text-gray-700">
+        <strong>আপনার এলাকা:</strong> <span id="area"></span>
+      </p>
+      <p class="text-lg text-gray-700 mb-6">
+        <strong>পুকুরের আকার:</strong> <span id="pondSize"></span> ফুট
+      </p>
+      <p class="text-lg text-gray-700 mb-6">
+        <strong>আপনার চাষ করার জন্য উপর্যুক্ত মাছ :</strong>
+        <span id="pondSize"></span>
+      </p>
+
+      <!-- Fish Blog Section -->
+      <div id="fishBlog"></div>
+
+      <button
+        onclick="window.location.href='area.html'"
+        class="mt-6 block mx-auto bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"
+      >
+        নতুন নির্বাচন করুন
+      </button>
+    </div>
+
+    <script>
+      // Get parameters from URL
+      const params = new URLSearchParams(window.location.search);
+      const area = params.get("area");
+      const length = params.get("length");
+      const width = params.get("width");
+
+      // Display area and pond size
+      document.getElementById("area").innerText = area;
+      document.getElementById("pondSize").innerText = `${length} × ${width}`;
+
+      // Fish recommendations with details
+      const fishData = {
+        Khulna: [
+          {
+            name: "রুই মাছ",
+            img: "rui.jpeg",
+            desc: `পুকুরে রুই মাছ চাষ করার জন্য কিছু বিশেষ বৈশিষ্ট্য থাকা দরকার। নিচে রুই মাছ চাষের জন্য উপযুক্ত পুকুরের বৈশিষ্ট্য এবং রুই মাছ চাষ কেন লাভজনক, তা আলোচনা করা হলো |<br> পুকুরের বৈশিষ্ট্য:
+            <br> আকার: রুই মাছ চাষের জন্য পুকুরের আকার খুব বেশি বড় বা ছোট হওয়া উচিত নয়। মাঝারি আকারের পুকুর (যেমন, ২০-২৫ শতাংশ) রুই মাছ চাষের জন্য ভালো।
+            <br> গভীরতা: পুকুরের গভীরতা ৩-৬ ফুট হওয়া উচিত। এর বেশি গভীর হলে মাছের অক্সিজেন পেতে অসুবিধা হতে পারে।
+            <br>মাটি: পুকুরের তলদেশের মাটি দোআঁশ বা এঁটেল দোআঁশ হওয়া উচিত। এই মাটি মাছের জন্য প্রয়োজনীয় খাদ্য উপাদান সরবরাহ করতে পারে।
+            <br>পানির গুণাগুণ: পুকুরের পানির pH ৬.৫ থেকে ৭.৫ এর মধ্যে থাকতে হবে। এছাড়াও, পানিতে পর্যাপ্ত অক্সিজেন (প্রতি লিটারে ৫ মিলিগ্রামের বেশি) থাকতে হবে।
+            <br>সূর্যালোক: পুকুরে পর্যাপ্ত সূর্যালোক আসা প্রয়োজন, যা মাছের স্বাস্থ্যকর বৃদ্ধির জন্য অপরিহার্য।
+            <br> রুই মাছ চাষের সুবিধা:
+
+            <br>দ্রুত বৃদ্ধি: রুই মাছ খুব দ্রুত বৃদ্ধি পায় এবং অল্প সময়ে বাজারে বিক্রির উপযোগী হয়ে যায়।
+            <br>কম রোগ: রুই মাছ তুলনামূলকভাবে কম রোগাক্রান্ত হয়, যা চাষের খরচ কমায়।
+            <br>বাজার চাহিদা: রুই মাছের স্বাদ ও পুষ্টিগুণ ভালো হওয়ায় বাজারে এর চাহিদা সবসময় থাকে। ফলে, সহজেই বিক্রি করা যায়।
+            <br>উচ্চ মূল্য: রুই মাছের বাজার মূল্য অন্যান্য মাছের তুলনায় বেশি, যা অধিক মুনাফা অর্জনে সাহায্য করে।
+            <br>মিশ্র চাষের সুবিধা: রুই মাছের সাথে অন্য মাছ (যেমন, কাতলা, মৃগেল) চাষ করা যায়, যা পুকুরের উৎপাদনশীলতা বাড়ায়।
+            এসব কারণে রুই মাছ চাষ অত্যন্ত লাভজনক। তবে, চাষের শুরুতে এবং সময়ে সময়ে মাছের স্বাস্থ্য ও পরিবেশের দিকে নজর রাখতে হবে।`,
+          },
+          {
+            name: "কাতলা মাছ",
+            img: "katla.jpeg",
+            desc: `কাতলা মাছ চাষের জন্য পুকুরের কিছু বিশেষ বৈশিষ্ট্য থাকা প্রয়োজন। নিচে কাতলা মাছ চাষের জন্য উপযুক্ত পুকুরের বৈশিষ্ট্য এবং কাতলা মাছ চাষ কেন লাভজনক, তা আলোচনা করা হলো:
+
+<br> পুকুরের বৈশিষ্ট্য:
+
+<br>আকার: কাতলা মাছ চাষের জন্য পুকুরের আকার খুব বেশি বড় বা ছোট হওয়া উচিত নয়। মাঝারি আকারের পুকুর (যেমন, ২০-২৫ শতাংশ) কাতলা মাছ চাষের জন্য ভালো।
+<br>গভীরতা: পুকুরের গভীরতা ৩-৬ ফুট হওয়া উচিত। এর বেশি গভীর হলে মাছের অক্সিজেন পেতে অসুবিধা হতে পারে।
+<br>মাটি: পুকুরের তলদেশের মাটি দোআঁশ বা এঁটেল দোআঁশ হওয়া উচিত। এই মাটি মাছের জন্য প্রয়োজনীয় খাদ্য উপাদান সরবরাহ করতে পারে।
+<br>পানির গুণাগুণ: পুকুরের পানির pH ৬.৫ থেকে ৭.৫ এর মধ্যে থাকতে হবে। এছাড়াও, পানিতে পর্যাপ্ত অক্সিজেন (প্রতি লিটারে ৫ মিলিগ্রামের বেশি) থাকতে হবে।
+<br>সূর্যালোক: পুকুরে পর্যাপ্ত সূর্যালোক আসা প্রয়োজন, যা মাছের স্বাস্থ্যকর বৃদ্ধির জন্য অপরিহার্য।
+কাতলা মাছ চাষের সুবিধা:
+
+<br>দ্রুত বৃদ্ধি: কাতলা মাছ খুব দ্রুত বৃদ্ধি পায় এবং অল্প সময়ে বাজারে বিক্রির উপযোগী হয়ে যায়।
+<br>কম রোগ: কাতলা মাছ তুলনামূলকভাবে কম রোগাক্রান্ত হয়, যা চাষের খরচ কমায়।
+<br>বাজার চাহিদা: কাতলা মাছের স্বাদ ও পুষ্টিগুণ ভালো হওয়ায় বাজারে এর চাহিদা সবসময় থাকে। ফলে, সহজেই বিক্রি করা যায়।
+<br>উচ্চ মূল্য: কাতলা মাছের বাজার মূল্য অন্যান্য মাছের তুলনায় বেশি, যা অধিক মুনাফা অর্জনে সাহায্য করে।
+<br>মিশ্র চাষের সুবিধা: কাতলা মাছের সাথে অন্য মাছ (যেমন, রুই, মৃগেল) চাষ করা যায়, যা পুকুরের উৎপাদনশীলতা বাড়ায়।
+এসব কারণে কাতলা মাছ চাষ অত্যন্ত লাভজনক। তবে, চাষের শুরুতে এবং সময়ে সময়ে মাছের স্বাস্থ্য ও পরিবেশের দিকে নজর রাখতে হবে।`,
+          },
+        ],
+        Chattogram: [
+          {
+            name: "তেলাপিয়া",
+            img: "tilapia.jpg",
+            desc: "তেলাপিয়া মাছ দ্রুত বৃদ্ধি পায় এবং স্বল্প রক্ষণাবেক্ষণে চাষ করা যায়।",
+          },
+          {
+            name: "পাঙ্গাস",
+            img: "pangash.png",
+            desc: "পাঙ্গাস মাছ সাধারণত গভীর পানিতে পালন করা হয় এবং দ্রুত বৃদ্ধি পায়।",
+          },
+        ],
+        // Add more fish data for other regions
+      };
+
+      // Populate fish blog
+      const fishBlog = document.getElementById("fishBlog");
+      if (area && fishData[area]) {
+        fishData[area].forEach((fish) => {
+          const fishArticle = document.createElement("div");
+          fishArticle.className = "mb-6 p-4 bg-white rounded-lg shadow-lg";
+          fishArticle.innerHTML = `
+                    <img src="images/${fish.img}" alt="${fish.name}" class="w-full h-full object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold">${fish.name}</h3>
+                    <p class="text-gray-700 mt-2">${fish.desc}</p>
+                `;
+          fishBlog.appendChild(fishArticle);
+        });
+      } else {
+        fishBlog.innerHTML =
+          "<p class='text-gray-800'>এই অঞ্চলের জন্য কোনো তথ্য পাওয়া যায়নি।</p>";
+      }
+    </script>
+  </body>
+</html>
