@@ -96,7 +96,15 @@
             placeholder="Enter width"
           />
         </div>
-
+        <div class="mb-3">
+          <label class="block text-left text-gray-700"> গভীরতা (ফুট)</label>
+          <input
+            type="number"
+            id="depth"
+            class="w-full p-2 border rounded"
+            placeholder="Enter width"
+          />
+        </div>
         <!-- Next Button -->
         <button
           id="nextBtn"
@@ -119,6 +127,7 @@
 
       const lengthInput = document.getElementById("length");
       const widthInput = document.getElementById("width");
+      const depthInput = document.getElementById("depth");
       const nextBtn = document.getElementById("nextBtn");
 
       // Enable button when both inputs have values
@@ -139,8 +148,8 @@
         const selectedArea = params.get("area");
         const length = lengthInput.value;
         const width = widthInput.value;
-
-        window.location.href = `fish-suggestions.html?area=${selectedArea}&length=${length}&width=${width}`;
+        const depth = depthInput.value;
+        window.location.href = `fish-suggestions.html?area=${selectedArea}&length=${length}&width=${width}&depth=${depth}`;
       });
     </script>
   </body>
