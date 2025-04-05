@@ -37,3 +37,52 @@ function calculateWaterQuality() {
     </a>
   `;
 }
+function calculateFoodConsumption() {
+  const quantity = parseFloat(document.getElementById("quantity").value);
+  const avgSize = parseFloat(document.getElementById("avgSize").value);
+  const fishName = document.getElementById("fishName").value.trim();
+
+  if (isNaN(quantity) || isNaN(avgSize) || quantity <= 0 || avgSize <= 0) {
+    document.getElementById("foodResult").innerText =
+      "Please enter valid values.";
+    return;
+  }
+
+  // Feed rate can vary by fish type; default is 3%
+  let feedRate = 0.03;
+
+  // Optional: Add special feed rates for known fish
+  const feedRatesByFish = {
+    চিংড়ী: 0.04,
+    রুই: 0.025,
+    কাতলা: 0.025,
+    মৃগেল: 0.025,
+    পাঙ্গাস: 0.03,
+    তেলাপিয়া: 0.035,
+    নাইলোটিকা: 0.035,
+    শিং: 0.04,
+    মাগুর: 0.045,
+    গোলসা: 0.03,
+    পাবদা: 0.035,
+    কৈ: 0.03,
+    বোয়াল: 0.03,
+    কই: 0.03,
+    আইড়: 0.03,
+    রিঠা: 0.03,
+    গাফি: 0.03,
+    সরপুঁটি: 0.025,
+  };
+
+  if (feedRatesByFish[fishName]) {
+    feedRate = feedRatesByFish[fishName];
+  }
+
+  const totalFeed = quantity * avgSize * feedRate; // in grams
+  const totalFeedKg = (totalFeed / 1000).toFixed(2);
+
+  document.getElementById(
+    "foodResult"
+  ).innerText = `Estimated daily food required: ${totalFeed.toFixed(
+    2
+  )} g (${totalFeedKg} kg)`;
+}

@@ -18,8 +18,12 @@
         <nav>
           <ul class="flex space-x-6 items-center">
             <li><a href="index.html" class="hover:underline">About</a></li>
-            <li><a href="#membership" class="hover:underline">Membership</a></li>
-            <li><a href="calculator.html" class="hover:underline">Calculator</a></li>
+            <li>
+              <a href="#membership" class="hover:underline">Membership</a>
+            </li>
+            <li>
+              <a href="calculator.html" class="hover:underline">Utilities</a>
+            </li>
             <li><a href="#shop" class="hover:underline">Shop</a></li>
             <li><a href="#contact" class="hover:underline">Contact</a></li>
           </ul>
@@ -30,35 +34,75 @@
     <!-- Water Quality Calculator Section -->
     <section class="py-12">
       <div class="container mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-6">Water Quality Calculator</h2>
+        <h2 class="text-2xl font-bold mb-6">Water Quality Check</h2>
         <form
           id="waterQualityForm"
           class="bg-white shadow-md rounded-lg p-8 max-w-lg mx-auto"
         >
           <!-- pH Level -->
           <div class="mb-4">
-            <label for="ph" class="block text-left text-gray-700">pH Level:</label>
-            <input type="number" id="ph" name="ph" class="w-full border-gray-300 rounded-lg p-2" required />
+            <label for="ph" class="block text-left text-gray-700"
+              >pH Level:</label
+            >
+            <input
+              type="number"
+              id="ph"
+              name="ph"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
           </div>
           <!-- Dissolved Oxygen -->
           <div class="mb-4">
-            <label for="do" class="block text-left text-gray-700">Dissolved Oxygen (mg/L):</label>
-            <input type="number" id="do" name="do" class="w-full border-gray-300 rounded-lg p-2" required />
+            <label for="do" class="block text-left text-gray-700"
+              >Dissolved Oxygen (mg/L):</label
+            >
+            <input
+              type="number"
+              id="do"
+              name="do"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
           </div>
           <!-- Sulfur Dioxide -->
           <div class="mb-4">
-            <label for="so2" class="block text-left text-gray-700">Sulfur Dioxide (SO₂) (mg/L):</label>
-            <input type="number" id="so2" name="so2" class="w-full border-gray-300 rounded-lg p-2" required />
+            <label for="so2" class="block text-left text-gray-700"
+              >Sulfur Dioxide (SO₂) (mg/L):</label
+            >
+            <input
+              type="number"
+              id="so2"
+              name="so2"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
           </div>
           <!-- Carbon Dioxide -->
           <div class="mb-4">
-            <label for="co2" class="block text-left text-gray-700">Carbon Dioxide (CO₂) (mg/L):</label>
-            <input type="number" id="co2" name="co2" class="w-full border-gray-300 rounded-lg p-2" required />
+            <label for="co2" class="block text-left text-gray-700"
+              >Carbon Dioxide (CO₂) (mg/L):</label
+            >
+            <input
+              type="number"
+              id="co2"
+              name="co2"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
           </div>
           <!-- Ammonia -->
           <div class="mb-4">
-            <label for="nh3" class="block text-left text-gray-700">Ammonia (NH₃) (mg/L):</label>
-            <input type="number" id="nh3" name="nh3" class="w-full border-gray-300 rounded-lg p-2" required />
+            <label for="nh3" class="block text-left text-gray-700"
+              >Ammonia (NH₃) (mg/L):</label
+            >
+            <input
+              type="number"
+              id="nh3"
+              name="nh3"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
           </div>
           <button
             type="button"
@@ -69,6 +113,90 @@
           </button>
         </form>
         <div id="result" class="mt-6 text-lg font-bold text-blue-700"></div>
+      </div>
+    </section>
+    <!-- Fish Food Calculator Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">
+          Fish Food Consumption Calculator
+        </h2>
+        <form
+          id="foodCalculatorForm"
+          class="bg-blue-100 shadow-md rounded-lg p-8 max-w-lg mx-auto"
+        >
+          <!-- Fish Name -->
+          <div class="mb-4 text-left">
+            <label for="fishName" class="block text-gray-700">Fish Name:</label>
+            <select
+              id="fishName"
+              name="fishName"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            >
+              <option value="" disabled selected>Select a fish</option>
+              <option value="চিংড়ী">চিংড়ী</option>
+              <option value="রুই">রুই</option>
+              <option value="কাতলা">কাতলা</option>
+              <option value="মৃগেল">মৃগেল</option>
+              <option value="পাঙ্গাস">পাঙ্গাস</option>
+              <option value="তেলাপিয়া">তেলাপিয়া</option>
+              <option value="নাইলোটিকা">নাইলোটিকা</option>
+              <option value="শিং">শিং</option>
+              <option value="মাগুর">মাগুর</option>
+              <option value="গোলসা">গোলসা</option>
+              <option value="পাবদা">পাবদা</option>
+              <option value="কৈ">কৈ</option>
+              <option value="বোয়াল">বোয়াল</option>
+              <option value="কই">কই</option>
+              <option value="আইড়">আইড়</option>
+              <option value="রিঠা">রিঠা</option>
+              <option value="গাফি">গাফি</option>
+              <option value="সরপুঁটি">সরপুঁটি</option>
+            </select>
+          </div>
+
+          <!-- Quantity -->
+          <div class="mb-4 text-left">
+            <label for="quantity" class="block text-gray-700"
+              >Number of Fish:</label
+            >
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
+          </div>
+
+          <!-- Average Size -->
+          <div class="mb-4 text-left">
+            <label for="avgSize" class="block text-gray-700"
+              >Average Size (g):</label
+            >
+            <input
+              type="number"
+              id="avgSize"
+              name="avgSize"
+              class="w-full border-gray-300 rounded-lg p-2"
+              required
+            />
+          </div>
+
+          <button
+            type="button"
+            onclick="calculateFoodConsumption()"
+            class="bg-green-600 text-white px-4 py-2 rounded-lg"
+          >
+            Calculate Food Requirement
+          </button>
+        </form>
+
+        <div
+          id="foodResult"
+          class="mt-6 text-lg font-bold text-green-700"
+        ></div>
       </div>
     </section>
   </body>
